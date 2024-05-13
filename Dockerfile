@@ -1,6 +1,3 @@
-# FROM quay.io/keycloak/keycloak:18.0.1
-# #Adding custom ENTRYPOINT
-# ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start --proxy=edge" , "--auto-build", "--db=postgres"]
+FROM quay.io/keycloak/keycloak:21.1
 
-FROM nginx
-COPY ./default.conf /etc/nginx/conf.d/
+COPY cert/DigiCertGlobalRootCA.crt.pem /opt/keycloak/.postgresql/root.crt
